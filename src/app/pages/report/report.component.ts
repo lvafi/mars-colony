@@ -5,6 +5,7 @@ import { AlienService } from '../../services/alien.service';
 import { Report } from '../../models/report';
 import { ReportService } from '../../services/report.service';
 
+
 @Component({
   selector: 'app-report',
   templateUrl: './report.component.html',

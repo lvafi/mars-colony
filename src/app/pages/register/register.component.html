@@ -1,18 +1,12 @@
-<div class="page">
-  <h1>Register</h1>
-  <form class="report-form">
+  <div class="page">
+  <form class="register-form">
     <fieldset>
-      <input type="text" placeholder="Name"/>
-      <input type="number" placeholder="Age"/>
+      <input type="text" placeholder="Enter your name" />
+      <input type="number" placeholder="Enter your age" />
       <select>
-        <option value="" selected>select occupation</option>
-        <option *ngFor="let job of listJobs">
-          {{job.name}}
-        </option>
-      </select>  
-    </fieldset>  
-    <div class="wrap">
-      <button (click)="postColonist()" class="button">Check in</button>
-    </div>  
-  </form>  
-</div>  
+        <option value="1">Select an occupation</option>
+      </select>
+    </fieldset>
+    <button type="submit">Register</button>
+  </form>
+  <div>
