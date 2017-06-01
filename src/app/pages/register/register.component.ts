@@ -1,27 +1,38 @@
 import { Component, OnInit } from '@angular/core';
-import { ColonistService } from '../../services/colonist.service';
+import { Job } from '../../models/job';
+import { RegisterService } from '../../services/register.service';
+
 import {Colonist} from '../../models/colonist';
+import { ColonistService } from '../../services/colonist.service';
+
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
-  providers: [ColonistService ]
+  providers: [RegisterService, ColonistService ]
 })
 export class RegisterComponent implements OnInit {
-  
+  public listJobs: Job[] = [];
+  public colonist: Colonist; 
  
-  colonist: Colonist;
-  constructor(private ColonistService : ColonistService) { }
+  constructor(private registerService: RegisterService,
+              private ColonistService : ColonistService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.registerService.getData()  
+        .subscribe((jobs) => {
+          this.listJobs = jobs;
+        });
+  }
 
   postColonist() {
     const colonist = new Colonist('Mak', '33', '1');
-    this.ColonistService.postData(colonist)
-                        .subscribe((newColonist) => {
-                          console.log(newColonist);
-                        });
+    this.ColonistService
+        .postData(colonist)
+        .subscribe((newColonist) => {
+          console.log(newColonist);
+        });
   } 
  
 

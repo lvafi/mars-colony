@@ -5,10 +5,10 @@
       <input type="text" placeholder="Name"/>
       <input type="number" placeholder="Age"/>
       <select>
-        <option value="1" selected>select occupation</option>
-        <option value="2" >Job #1</option>
-        <option value="3" >Job #2</option>
-        <option value="4" >Job #3 </option>
+        <option value="" selected>select occupation</option>
+        <option *ngFor="let job of listJobs">
+          {{job.name}}
+        </option>
       </select>  
     </fieldset>  
     <div class="wrap">

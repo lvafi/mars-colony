@@ -2,6 +2,10 @@
 <h1 class="page-heading">Report Encounter<span>Safety on Mars is your responsibility</span></h1>
 
 <fieldset>
+  <select>
+    <option>Select Alien Type</option>
+    <option *ngFor="let alien of aliens">{{alien.type}}</option>
+  </select>  
   <div>
     <textarea placeholder="action taken"></textarea>
   </div>  
