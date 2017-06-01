@@ -1,9 +1,9 @@
   <div class="page">
-  <form class="register-form">
+  <form class="register-form" #registerForm="ngForm">
     <fieldset>
-      <input type="text" placeholder="Enter your name" />
-      <input type="number" placeholder="Enter your age" />
-      <select>
+      <input type="text" placeholder="Enter your name" required/>
+      <input type="number" placeholder="Enter your age" required/>
+      <select required>
         <option value="1">Select an occupation</option>
       </select>
     </fieldset>
