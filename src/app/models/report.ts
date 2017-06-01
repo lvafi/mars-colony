@@ -3,9 +3,10 @@ export class Report {
   date: string;
   action: string;
   colonist_id : string;
-  construct(atype, date, action, colonist_id) {
+
+  constructor(atype, date, action, colonist_id) {
     this.atype = atype;
-    this.date =date;
+    this.date = date;
     this.action = action;
     this.colonist_id = colonist_id;
   }
