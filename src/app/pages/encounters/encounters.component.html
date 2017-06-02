@@ -1,9 +1,15 @@
 <div class="page">
-    Encounter page!
+    <div class="page-heading">
+    <h1>Recent Encounters</h1>
+    <h3>See an Alien? Report it!</h3>
+    </div>
     <ul>
       <li *ngFor="let encounter of encounters">
-        {{ encounter.atype }}, {{ encounter.action }}, {{encounter.date}}</li>
-    </ul>  
+        {{encounter.date}}, {{ encounter.atype }}, {{ encounter.action }} </li>
+    </ul> 
+    <footer>
+        <div class="button">Report Encounter</div>
+    </footer> 
 </div>
 
   

@@ -6,7 +6,7 @@ import {Colonist} from '../../models/colonist';
 import { ColonistService } from '../../services/colonist.service';
 
 import {FormGroup, FormControl, FormBuilder, Validators, ValidatorFn, AbstractControl} from '@angular/forms';
-
+import { RouterModule, Routes, Router } from '@angular/router';
 
 
 const canBe = (value: string): ValidatorFn => {
@@ -39,7 +39,9 @@ export class RegisterComponent implements OnInit {
  
   constructor(private registerService: RegisterService,
               private colonistService : ColonistService,
-              private formBuilder: FormBuilder) {   }
+              private formBuilder: FormBuilder,
+              private router: Router) {   }
+
 
   ngOnInit() {
     this.registerForm = new FormGroup({
@@ -49,7 +51,7 @@ export class RegisterComponent implements OnInit {
         Validators.minLength(3)
         ]),
       age: new FormControl('', [
-        Validators.required, age(16, 85)]),
+        Validators.required, age(1, 105)]),
       job_id: new FormControl(this.NO_JOB_SELECTED, [canBe(this.NO_JOB_SELECTED)])
     });
     this.registerService.getData()  
@@ -75,6 +77,7 @@ export class RegisterComponent implements OnInit {
         .subscribe((data) => {
           localStorage.setItem('colonistIdNum', (data.colonist.id).toString());
           console.log(localStorage.getItem('colonistIdNum'));
+          this.router.navigate (['/encounters']);
         });}
   } 
  
