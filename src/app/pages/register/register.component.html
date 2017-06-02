@@ -1,12 +1,15 @@
-  <div class="page">
-  <form class="register-form" #registerForm="ngForm">
+<div class="page">
+  <h1>Register</h1>
+  <form class="register-form" [formGroup]="registerForm" (ngSubmit)="register($event)">
     <fieldset>
-      <input type="text" placeholder="Enter your name" required/>
-      <input type="number" placeholder="Enter your age" required/>
-      <select required>
-        <option value="1">Select an occupation</option>
+      <input type="text" placeholder="Enter Your Name" required formControlName="name"/>
+      <input type="number" placeholder="Enter Your Age" required formControlName="age"/>
+      <select required formControlName="job_id" style="margin: 1rem;">
+        <option [value]="NO_JOB_SELECTED">Select an occupation</option>
+        <option *ngFor="let job of listJobs" [value]="job.id">{{ job.name }}</option>
       </select>
-    </fieldset>
-    <button type="submit">Register</button>
-  </form>
-  <div>
+  </fieldset>
+  <button class="button" type="submit" [disabled]="registerForm.invalid">Check in</button>
+</form>
+</div>
+
